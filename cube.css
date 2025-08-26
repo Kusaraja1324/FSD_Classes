@@ -1,0 +1,60 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100svh;
+    background-color: black;
+    perspective: 1000px;
+
+}
+.cube{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    animation: anime 5s infinite linear;
+    transform-style: preserve-3d;
+    
+}
+.cube > div{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    /* transform-style: preserve-3d; */
+     display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+.ch1{
+    border: 1px solid black;
+    border-radius: 5px;
+}
+.left{
+   background-color: red;
+   transform: rotateY(90deg) translateZ(100px);
+}
+.right{
+    background-color: blue;
+    transform: rotateY(90deg) translateZ(-100px);
+}
+.top{
+    background-color: rgb(0, 255, 238);
+    transform: rotateX(90deg) translateZ(100px);
+}
+.bottom{
+    background-color: green;
+    transform: rotateX(90deg) translateZ(-100px);
+}
+.front{
+    background-color: yellow;
+    transform: translateZ(100px);
+}
+
+.back{
+    background-color:purple;
+    transform: translateZ(-100px) rotateZ(90deg);
+}
+@keyframes anime{
+    100%{
+        transform: rotateX(360deg) rotateY(360deg);
+    }
+}
