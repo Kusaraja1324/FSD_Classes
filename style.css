@@ -1,0 +1,36 @@
+/* .para{
+    color: rgb(200, 100, 200);
+} */
+
+.para{
+    color: rebeccapurple;
+    text-align: center;
+    direction: ltr;
+    text-decoration: dotted;
+    text-decoration-line: line-through;
+}
+.para2{
+    color: red;
+    text-align-last:justify;
+    text-decoration: line-through;
+    text-decoration-color: blue;
+   
+}
+/* text spacing */
+/* .para5{
+    text-transform: lowercase;
+}
+.para6{
+    text-transform: capitalize;
+} */
+.para3{
+    letter-spacing: 10px;
+    word-spacing: 20;
+    text-indent: 30;
+    line-height: 2;
+}
+.para5{
+    color:red ;
+    text-shadow: -4px 5px 3px black;
+}
+

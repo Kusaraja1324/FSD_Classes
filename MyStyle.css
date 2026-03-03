@@ -1,0 +1,21 @@
+.momo{
+    border-top: 5px;
+    border-top-color:red ;
+    border-top-style: groove;
+    border-radius: 2px;
+
+     border-bottom: 5px;
+    border-bottom-color:black ;
+    border-bottom-style: dashed;
+
+      border-left: 5px;
+    border-left-color:green ;
+    border-left-style: double;
+
+      border-right: 5px;
+    border-right-color:pink ;
+    border-right-style: dotted;
+    /* border:5px solid red; */
+    width: 100px;
+    height: 100px;
+}

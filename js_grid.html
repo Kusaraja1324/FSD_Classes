@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dynamic Grid</title>
+  <style>
+    table, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      width: 30px;
+      height: 30px;
+      text-align: center;
+      padding: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <label>Rows: <input type="number" id="rows" /></label>
+  <label>Columns: <input type="number" id="cols" /></label>
+  <button onclick="createGrid()">Generate Grid</button>
+
+  <div id="gridContainer"></div>
+
+  <script>
+    function createGrid() {
+      const rows = parseInt(document.getElementById('rows').value);
+      const cols = parseInt(document.getElementById('cols').value);
+      const container = document.getElementById('gridContainer');
+
+      let table = "<table>";
+      for (let i = 0; i < rows; i++) {
+        table += "<tr>";
+        for (let j = 0; j < cols; j++) {
+          table += "<td></td>";
+        }
+        table += "</tr>";
+      }
+      table += "</table>";
+
+      container.innerHTML = table;
+    }
+  </script>
+
+</body>
+</html>

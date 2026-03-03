@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Task Page with Dual Run</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #04153F;
+      color: white;
+    }
+
+    .container {
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .left,
+    .right {
+      width: 50%;
+      padding: 20px;
+      box-sizing: border-box;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .left-tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .left-tab-button {
+      color: white;
+      font-weight: bold;
+      padding: 8px 16px;
+      background-color: #1E006E;
+      border: 1px solid #00FFE1;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .left-tab-button.active {
+      background-image: linear-gradient(145deg, #00FFF7, #6E00FF);
+      color: #04153F;
+    }
+
+    .tab-content {
+      background: #121E3A;
+      padding: 15px;
+      border-radius: 10px;
+      display: none;
+      color: #D1D5DB;
+      line-height: 1.6;
+      height: calc(100vh - 100px);
+      overflow-y: auto;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    #output {
+      padding: 0;
+      background: none;
+    }
+
+    #output iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      background: white;
+      border-radius: 6px;
+    }
+
+    .right h3 {
+      color: white;
+    }
+
+    .sec {
+      height: 25px;
+      margin-bottom: 10px;
+      display: flex;
+      gap: 5px;
+    }
+
+    .button {
+      color: white;
+      font-weight: bold;
+      width: 110px;
+      height: 31px;
+      border: 1px solid gray;
+      background: #1E006E;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    .button img {
+      height: 18px;
+      width: 18px;
+    }
+
+    .button:hover {
+      background-image: linear-gradient(145deg, #00FFF7, #6E00FF);
+      border: 0;
+    }
+
+    .curr {
+      border: 2px solid #00FFE1;
+      background: #1E006E;
+      color: #00FFE1;
+    }
+
+    .hide {
+      display: none;
+    }
+
+    textarea {
+      width: 95%;
+      height: 65vh;
+      padding: 10px;
+      resize: none;
+      border: 1px solid rgb(192, 188, 188);
+      background-color: hsl(224, 82%, 12%);
+      color: white;
+      font-size: 1rem;
+      font-family: monospace;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+
+    textarea::placeholder {
+      color: white;
+    }
+
+    .run {
+      color: white;
+      font-weight: bold;
+      width: 140px;
+      height: 35px;
+      background: #1E006E;
+      border-radius: 8px;
+      border: 1px solid #00FFE1;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+
+    .run:hover {
+      background: linear-gradient(145deg, #00FFF7, #6E00FF);
+      color: #04153F;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Left Panel -->
+    <div class="left">
+      <div class="left-tabs">
+        <button class="left-tab-button active" onclick="showTab('description')">Description</button>
+        <button class="left-tab-button" onclick="showTab('output')">Output</button>
+        <button class="left-tab-button" onclick="showTab('editorial')">Editorial</button>
+      </div>
+
+      <div id="description" class="tab-content active">
+  <h2>📌 Problem Statement: Real-Time Digital Clock</h2>
+  
+  <p><strong>🧩 Problem Description:</strong></p>
+  <p>
+    Your task is to build a visually appealing, fully functional real-time digital clock using only HTML, CSS, and JavaScript. The clock should display the current local time of the user's system and update every second to reflect changes in real-time.
+  </p>
+
+  <p><strong>✨ Requirements:</strong></p>
+  <ul>
+    <li>Use JavaScript's <code>Date</code> object to fetch the current local system time.</li>
+    <li>Ensure the clock updates automatically every second using <code>setInterval()</code>.</li>
+    <li>Display time in <strong>HH:MM:SS</strong> 24-hour format with leading zeroes.</li>
+    <li>Center the clock on the screen with a clean, responsive layout.</li>
+    <li>Make the user interface attractive using modern CSS styling techniques.</li>
+  </ul>
+
+  <p><strong>🎯 Goal:</strong> Build a responsive, real-time digital clock without using any external libraries or frameworks.</p>
+
+  <hr style="border-color: #00FFE1;" />
+
+  <p><strong>🧱 Components Breakdown:</strong></p>
+  <ul>
+    <li><strong>HTML:</strong> For setting up the clock's structure (like a div with an id).</li>
+    <li><strong>CSS:</strong> For layout, colors, font styling, and positioning the clock in the center.</li>
+    <li><strong>JavaScript:</strong> For fetching current time and updating the UI every second.</li>
+  </ul>
+
+  <p><strong>🔍 Use Cases:</strong></p>
+  <ul>
+    <li>Can be integrated into dashboards, kiosks, or personal portfolios.</li>
+    <li>Acts as a base project to understand real-time UI updates in JavaScript.</li>
+    <li>Can be extended into alarm clocks, countdown timers, or world clocks.</li>
+  </ul>
+
+  <p><strong>💡 Enhancement Ideas:</strong></p>
+  <ul>
+    <li>Show AM/PM toggle and switch between 12-hour and 24-hour formats.</li>
+    <li>Include date display with day, month, and year.</li>
+    <li>Add themes (dark/light mode) using CSS classes and buttons.</li>
+    <li>Support multiple time zones.</li>
+    <li>Include animation effects or sound ticks on second change.</li>
+  </ul>
+
+  <p><strong>🛠 Technical Notes:</strong></p>
+  <ul>
+    <li><code>Date</code> object provides methods like <code>getHours()</code>, <code>getMinutes()</code>, and <code>getSeconds()</code>.</li>
+    <li>Use <code>setInterval()</code> to refresh the time every 1000 milliseconds (1 second).</li>
+    <li>Use <code>padStart(2, '0')</code> to ensure two-digit format like 09:07:03.</li>
+  </ul>
+
+  <p><strong>🌟 Tip:</strong> Always test on different screen sizes to ensure the clock remains centered and readable across devices.</p>
+</div>
+
+        
+
+      <div id="output" class="tab-content">
+        <iframe id="user-output"></iframe>
+      </div>
+
+      <div id="editorial" class="tab-content">
+  <h2>📝 Editorial: Building a Real-Time Digital Clock</h2>
+  <p>
+    The objective of this project was to build a real-time digital clock that updates every second and displays the local time in a <strong>HH:MM:SS</strong> format. This editorial explains the thought process, implementation details, and design decisions behind the project.
+  </p>
+
+  <h3>🔍 Understanding the Requirements</h3>
+  <p>
+    We began by identifying the core functionality: retrieving the current time and displaying it dynamically. This required the use of JavaScript's built-in <code>Date</code> object to access hours, minutes, and seconds, and <code>setInterval()</code> to refresh the time every second.
+  </p>
+
+  <h3>🛠 Implementation Strategy</h3>
+  <ul>
+    <li><strong>HTML:</strong> Structured the webpage with a clock display container and a heading.</li>
+    <li><strong>CSS:</strong> Styled the container to be centered, responsive, and visually appealing using gradients, shadows, and flexbox.</li>
+    <li><strong>JavaScript:</strong> Wrote a function that fetches the current time, formats it with leading zeros, and updates the DOM every 1000 milliseconds.</li>
+  </ul>
+
+  <h3>🎨 Design Decisions</h3>
+  <p>
+    A glassmorphism design style was used to create a modern and elegant appearance. The use of large fonts and high contrast between text and background ensures readability. Responsive media queries help scale the clock appropriately for mobile users.
+  </p>
+
+  <h3>🚀 Challenges and Solutions</h3>
+  <ul>
+    <li><strong>Time formatting:</strong> Ensured all time values are two-digit numbers using <code>padStart()</code>.</li>
+    <li><strong>Update frequency:</strong> Used <code>setInterval()</code> to refresh the clock every 1 second efficiently.</li>
+  </ul>
+
+  <h3>✅ Final Output</h3>
+  <p>
+    The final digital clock is fully responsive, visually polished, and accurately reflects the user’s local time in real-time. It’s built with no dependencies, making it fast-loading and highly portable.
+  </p>
+
+  <h3>📌 Key Learnings</h3>
+  <ul>
+    <li>Efficient use of JavaScript for real-time applications</li>
+    <li>Responsive design principles using CSS Flexbox and media queries</li>
+    <li>Importance of UX/UI even in small utility projects</li>
+  </ul>
+
+  <p><strong>Conclusion:</strong> This project is a great example of how powerful even simple front-end tools can be when used correctly. It combines functionality with aesthetic design and serves as a solid beginner-friendly JavaScript project.</p>
+</div>
+
+    </div>
+
+    <!-- Right Panel -->
+    <div class="right">
+      <h3>🛠 Code Editor</h3>
+      <div class="sec">
+        <button class="html button curr" onclick="showHtml()">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML Logo">HTML
+        </button>
+        <button class="css button" onclick="showCSS()">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS Logo">CSS
+        </button>
+        <button class="js button" onclick="showJS()">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JS Logo">JS
+        </button>
+      </div>
+
+      <textarea id="html-code" placeholder="Write HTML here..."></textarea>
+      <textarea id="css-code" class="hide" placeholder="Write CSS here..."></textarea>
+      <textarea id="js-code" class="hide" placeholder="Write JS here..."></textarea>
+
+      <div>
+        <button onclick="runCode()" class="run">Run</button>
+        <button onclick="runInNewPage()" class="run">Run in New Page</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let externalWindow = null;
+
+    function showHtml() {
+      document.getElementById("html-code").classList.remove("hide");
+      document.getElementById("css-code").classList.add("hide");
+      document.getElementById("js-code").classList.add("hide");
+
+      const buttons = document.getElementsByClassName("button");
+      buttons[0].classList.add("curr");
+      buttons[1].classList.remove("curr");
+      buttons[2].classList.remove("curr");
+    }
+
+    function showCSS() {
+      document.getElementById("css-code").classList.remove("hide");
+      document.getElementById("html-code").classList.add("hide");
+      document.getElementById("js-code").classList.add("hide");
+
+      const buttons = document.getElementsByClassName("button");
+      buttons[1].classList.add("curr");
+      buttons[0].classList.remove("curr");
+      buttons[2].classList.remove("curr");
+    }
+
+    function showJS() {
+      document.getElementById("js-code").classList.remove("hide");
+      document.getElementById("css-code").classList.add("hide");
+      document.getElementById("html-code").classList.add("hide");
+
+      const buttons = document.getElementsByClassName("button");
+      buttons[2].classList.add("curr");
+      buttons[0].classList.remove("curr");
+      buttons[1].classList.remove("curr");
+    }
+
+    function buildUserCode() {
+      const html = document.getElementById("html-code").value;
+      const css = document.getElementById("css-code").value;
+      const js = document.getElementById("js-code").value;
+
+      return `
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <style>${css}</style>
+        </head>
+        <body>
+          ${html}
+          <script>${js.replace(/<\/script>/g, "<\\/script>")}<\/script>
+        </body>
+        </html>
+      `;
+    }
+
+    function runCode() {
+      const userCode = buildUserCode();
+      const iframe = document.getElementById("user-output");
+      iframe.srcdoc = userCode;
+      showTab('output');
+
+      if (externalWindow && !externalWindow.closed) {
+        externalWindow.document.open();
+        externalWindow.document.write(userCode);
+        externalWindow.document.close();
+      }
+    }
+
+    function runInNewPage() {
+      const userCode = buildUserCode();
+      externalWindow = window.open();
+      if (externalWindow) {
+        externalWindow.document.open();
+        externalWindow.document.write(userCode);
+        externalWindow.document.close();
+      } else {
+        alert("Popup blocked! Please allow popups for this site.");
+      }
+    }
+
+    function showTab(tabId) {
+      const contents = document.querySelectorAll('.tab-content');
+      const buttons = document.querySelectorAll('.left-tab-button');
+      contents.forEach(c => c.classList.remove('active'));
+      buttons.forEach(b => b.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+      event.target.classList.add('active');
+    }
+  </script>
+</body>
+</html>

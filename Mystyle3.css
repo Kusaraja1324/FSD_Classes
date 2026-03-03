@@ -1,0 +1,26 @@
+.mt{
+    font-size:100px;
+    color: red;
+    /* width: 500px;
+    height: 500px; */
+    border:5px solid yellow ;
+    padding: 10px 20px 20px 80px;
+    background-image: url(./aot_img.jpg) ; 
+   background-repeat: repeat-y;
+    background-repeat: repeat-x;
+    /* background-repeat: no-repeat; */
+    /* background-size: 100% 100%; */
+    background-size: contain;
+    /* background-size: cover; */
+     background-position: bottom left;
+      /* background-position: bottom right ;
+    background-position: bottom center; */
+     /* background-position: top left ; */
+     /* background-position: top center ;
+     background-position: top right ; */
+     /* background-position: center left ; */
+     /* background-position: center center ;
+     background-position: center right; */
+     /* filter: blur(5px); */
+}
+

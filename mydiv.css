@@ -1,0 +1,48 @@
+/* .parent{
+    height: 100px;
+    width: 100px;
+    
+    background-color: green;
+}
+.parent:hover{
+    border-radius: 50%;
+    background-color: red;
+} */
+
+/* button:active{
+    background-color: red;
+}
+input:focus{
+    background-color: yellow;
+} */
+
+/* h1:nth-child(4){
+    color: red;
+}
+h1:not(.parent){
+    color:green
+} */
+.out{
+    width: 250px;
+    height: 250px;
+    border: 5px solid black ;
+}
+.in1{
+    width: 80px;
+    height: 80px;
+    background-color: rgb(255, 170, 127);
+}
+.in2{
+    width: 80px;
+    height: 80px;
+    background-color: rgb(138, 255, 127);
+}
+.out:hover .in1{
+    background-color: black;
+}
+.out:hover .in2{
+    background-color: yellow;
+}
+.out:hover{
+    background-color: aqua;
+}

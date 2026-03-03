@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,td{
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 30px;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <input type="number" id="rows" required>
+    <input type="number" id="cols" required>
+    <button onclick="Grid()">Grid</button>
+
+    <div id="cont"></div>
+    
+    <script>
+        function Grid(){
+
+        const row = parseInt(document.getElementById('rows').value);
+        const col = parseInt(document.getElementById('cols').value);
+        const container = document.getElementById('cont');
+
+        var table = "<table>";
+            for(let i=0;i<row;i++){
+                table += "<tr>";
+                    for(let j=0;j<col;j++){
+                        table += "<td></td>";
+                    }
+                 table += "</tr>";
+            }
+            table += "</table>";
+            container.innerHTML = table;
+
+        }
+    </script>
+</body>
+</html>

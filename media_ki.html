@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page</title>
+    <style>
+      * {
+        margin: 0 0;
+      }
+      .header {
+        height: 40px;
+        padding: 10px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        background-color: green;
+        color: white;
+      }
+      ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        gap: 10rem;
+      }
+      .menu {
+        display: none;
+      }
+      .bar {
+        width: 35px;
+        height: 5px;
+        background-color: black;
+        margin: 6px 0;
+      }
+      @media (max-width: 700px) {
+        nav {
+          display: none;
+        }
+        .menu {
+          display: inline-block;
+        }
+        .login {
+            display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <img src="./dani.png" alt="logo" style="width: 50px; height: 50px; border-radius:25px;" />
+      <nav>
+        <ul style="list-style: none">
+          <li>Home</li>
+          <li>About</li>
+          <li>Contact</li>
+        </ul>
+      </nav>
+      <div class="menu">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+      <div class="login">Login</div>
+    </div>
+  </body>
+</html>

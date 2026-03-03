@@ -1,0 +1,80 @@
+.parent{
+    width: 500px;
+    border-radius: 10px 10px 10px 10px ;
+}
+.atm{
+    width: 400px;
+    border: 8px solid rgb(0, 0, 58);
+    border-radius: 10px 10px;
+}
+.chip{
+    width: 100px;
+    position: absolute;
+    top:90px;
+    left:50px ;
+}
+.text{
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    font-style: normal;
+    position: absolute;
+    top: 20px;
+    left: 30px;
+}
+.num{
+    position: absolute;
+    color: rgb(255, 255, 255);
+    top: 180px;
+}
+.valid{
+    position: absolute;
+    color: rgb(255, 255, 255);
+    top: 200px;
+}
+.date{
+    position: absolute;
+    top: 220px;
+    color: rgb(255, 255, 255);
+    
+}
+.name{
+    position: absolute;
+    top: 240px;
+    font-style: italic;
+    color: white;
+}
+.circle1{
+    width: 60px;
+    height: 60px;
+    background-color:rgb(200,0,0);
+    position: absolute;
+   left: 300px;
+    top: 190px;
+    border-radius: 50px;
+    z-index: 2;
+    filter: opacity(75%);
+}
+.circle2{
+    width: 60px;
+    height: 60px;
+    background-color:rgb(207, 211, 98);
+    position: absolute;
+    left: 270px;
+    top: 190px;
+    border-radius: 50px;
+    filter: opacity(75%);
+}
+.debit{
+    position: absolute;
+    color: white;
+    top:50px ;
+    right: 300px;
+    font-style: italic;
+    font-size: larger;
+}
+.mc{
+    position: absolute;
+    color: rgb(255, 255, 255);
+    top: 250px;
+    right: 290px;
+}

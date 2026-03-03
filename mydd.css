@@ -1,0 +1,25 @@
+.parent{
+    width: 100px;
+    border: 1px solid black;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    column-gap: 5px;
+    text-align: center;
+    background-color: red;
+}
+.child2{
+    display: none;
+}
+.parent:hover .child2{
+    display:block;
+}
+.child2:hover{
+    background-color:black;
+    color: white;
+}
+.submen:hover{
+    cursor: pointer;
+    background-color: gray;
+    color: white;
+}

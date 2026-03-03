@@ -1,0 +1,51 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100svh;
+}
+.grand{
+    perspective: 1000px;
+    width: 250px;
+    height: 150px;
+}
+.parent{
+    position: relative;
+    width: 250px;
+    height: 150px;
+    /* border: 1px solid black; */
+    transform-style: preserve-3d;
+    transition: transform 1s linear;
+}
+.parent:hover{
+    transform:rotateY(180deg);
+    transition: transform 1s linear;
+}
+.front{
+    position: absolute;
+    width: 250px;
+    height: 150px;
+    border: 1px solid black;
+    background-color: red;
+    border-radius: 5px;
+    padding: 10px;
+    color: white;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    transition: transform 1s linear;
+    backface-visibility: hidden;
+}
+
+.back{
+    position: absolute;
+    width: 250px;
+    height: 150px;
+    background-color: blue;
+    border-radius: 5px;
+    padding: 10px;
+    color: white;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    transition: transform 1s linear;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+}
+

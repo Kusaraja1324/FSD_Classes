@@ -1,0 +1,69 @@
+div{
+    width: 100px;
+    height: 100px;
+    background-color: rgb(255, 0, 0);
+    border: 2px solid black;
+    color: yellow;
+    box-shadow: 0px 0px 100px black;
+}
+/* 
+Translate
+
+.div1{
+    transform: translate(50px);
+}
+.div2 {
+  transform: translate(50px, 20px); 
+}
+
+.div3 {
+  transform: translate(100px, 30px);
+} */
+
+/* Skewness
+
+.div4{
+    transform: skew(15deg);
+}
+.div5{
+    transform: skewX(15deg);
+}
+.div6{
+    transform: skewy(15deg);
+}
+.div7{
+    transform: skew(15deg,15deg);
+} */
+
+ /*scale
+.div8{
+    transform: scale(1.5);
+} 
+
+.div8:hover{
+    transform: scale(1.5);
+}
+
+.div9{
+    transform: scalex(2);
+}
+.div10{
+    transform: scaley(2);
+}
+*/
+
+
+/* rotate */
+/* .div11{
+    transform: rotate(25deg);
+}
+.div12{
+    transform: rotatex(25deg);
+}
+.div13{
+    transform: rotatey(25deg);
+} */
+
+.div14{
+    transform :matrix(10,15deg,15deg,75deg,25px,20px)
+}

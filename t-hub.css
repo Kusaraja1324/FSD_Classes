@@ -1,0 +1,147 @@
+body{
+
+}
+.head{
+    width: 100%;
+    height: 80px;
+    border: 1px solid black;
+    font-size: 30px;
+    color: green;
+    display: flex;
+    flex-direction: row;
+}
+
+.home{
+    position: absolute;
+    right: 600px;
+    top: 30px;
+    font-size:20px ;
+    color: black;
+}
+.home:hover{
+    cursor: pointer;
+}
+
+
+         /**/
+
+
+.place{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 400px;
+    top: 30px;
+    font-size:20px ;
+    cursor: pointer;
+    color: black;
+}
+.d1{
+    display: none;
+}
+.place:hover .d1{
+    display: block;
+}
+.place:hover{
+    border: 1px solid black;
+    background-color: greenyellow;
+}
+.d1:hover{
+    border: 1px solid black;
+    background-color: aqua;
+}
+
+
+    /**/  
+
+
+.paths{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right:250px;
+    top: 30px;
+    font-size:20px ;
+    cursor: pointer;
+    color: black;
+    cursor: pointer;
+}
+.d2{
+    display: none;
+}
+.paths:hover .d2{
+    display: block;
+}
+.d2:hover{
+    background-color: aqua;
+    border: 1px solid black;
+}
+.paths:hover{
+    border: 1px solid black;
+    background-color: greenyellow;
+}
+
+.team{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right:120px;
+    top: 30px;
+    font-size:20px ;
+    cursor: pointer;
+    color: black;
+    cursor: pointer;
+}
+.d3{
+    display: none;
+}
+.team:hover .d3{
+    display: block;
+}
+.d3:hover{
+    background-color: aqua;
+    border: 1px solid black;
+}
+.team:hover{
+    background-color: greenyellow;
+    border: 1px solid black;
+}
+
+.contact{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right:10px;
+    top: 30px;
+    font-size:20px ;
+    cursor: pointer;
+    color: black;
+    cursor: pointer;
+}
+.d4{
+    display: none;
+}
+.contact:hover .d4{
+    display: block;
+}
+.d4:hover{
+    background-color: aqua;
+    border: 1px solid black;
+}
+.contact:hover{
+    background-color: greenyellow;
+    border: 1px solid black;
+}
+.image{
+    position: absolute;
+}
+.im_mat{
+    display: none;
+}
+.image:hover .im_mat{
+    display: block;
+}
+.im_mat{
+    background-color: aliceblue;
+    filter: opacity(50%);
+}

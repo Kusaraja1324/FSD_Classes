@@ -1,0 +1,38 @@
+body{
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    height: 100svh;
+}
+.mobile_options .font{
+    width: fit-content;
+    text-align: end;
+    color: white;
+    font-size: 1.5rem;
+}
+.mobile_options,div{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+.mobile_options .font:hover{
+    background-color: red;
+    cursor: pointer;
+}
+.mobile_options{
+    position: relative;
+    height: 200px;
+    width: 150px;
+    border: 1px solid white;
+}
+.mobile_options .hm{
+    color: white;
+    font-size: 1.5rem;
+    padding: 1px;
+    border-bottom: 1px solid white;
+    border-radius: 5px;
+}
+.mobile_options .hm:hover{
+    background-color: red;
+    border-radius: 5px;
+}

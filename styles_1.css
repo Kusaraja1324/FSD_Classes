@@ -1,0 +1,138 @@
+
+        
+        body {
+            background-color: #e0f0ff; /* Light blue background */
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .task-manager-container {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 500px;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* --- Header --- */
+        h1 {
+            color: #005a9e;
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+        }
+
+        /* --- Form for Adding Tasks --- */
+        .add-task-form {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .task-input {
+            flex-grow: 1; /* Allows input to take up available space */
+            padding: 12px 15px;
+            border: 2px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .task-input:focus {
+            outline: none;
+            border-color: #007bff;
+        }
+
+        .add-task-btn {
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            padding: 0 20px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .add-task-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* --- Task List --- */
+        .task-list {
+            list-style: none; /* Removes default bullet points */
+            padding: 0;
+            margin: 0;
+        }
+
+        .task-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 5px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .task-item:last-child {
+            border-bottom: none; /* Removes border from the last item */
+        }
+        
+        .task-text {
+            margin: 0 15px;
+            flex-grow: 1;
+            color: #333;
+            transition: color 0.3s, text-decoration 0.3s;
+        }
+
+        .remove-task-btn {
+            background-color: #dc3545;
+            color: #ffffff;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .remove-task-btn:hover {
+            background-color: #c82333;
+        }
+
+        .checkbox {
+            width: 24px;
+            height: 24px;
+            border: 2px solid #ccc;
+            border-radius: 6px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .checkbox .tick {
+            display: none; 
+            color: #ffffff;
+            font-weight: bold;
+        }
+        
+        .task-item.completed .checkbox {
+            background-color: #28a745;
+            border-color: #28a745;
+        }
+
+        .task-item.completed .checkbox .tick {
+            display: block; 
+        }
+
+        .task-item.completed .task-text {
+            text-decoration: line-through;
+            color: #aaa;
+        }
+   

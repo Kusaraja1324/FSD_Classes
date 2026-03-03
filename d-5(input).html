@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <title>input types</title>
+    </head>
+    <body>
+        <h1>Application Form</h1>
+        <form>
+           <div><label for="Fname">First Name:</label>
+            <input type="text" name="Fname" required>
+            <label for="Lname">Last Name:</label>
+            <input type="text" name="Lname" required><br></div>
+           <div> <label for="dob">Date Of Birth</label>
+            <input type="date" name="dob" required>
+            <label>Age</label>
+            <input type="number" max="100" required><br>
+        </div>
+           <div> <label>Gender:</label>
+            <select>
+                <option>Male</option>
+                <option>Female</option>
+                <option>other</option>
+            </select>
+            <label>Email Address:</label>
+            <input type="email" placeholder="Enter your email" required><br/></div>
+            <div>
+            <label for="pa">Positions Available:</label>
+            <input type="radio" name="pa">
+            <label>Junior Developer</label>
+            <input type="radio" name="pa">
+            <label>Mid-level Developer</label>
+            <input type="radio" name="pa" >
+            <label>Senior Developer</label><br></div>
+            <div>
+            <label for="pl">Programming Languages:</label>
+            <input type="checkbox" name="pl">
+            <label>Java</label>
+            <input type="checkbox" name="pl">
+            <label>JavaScript</label>
+            <input type="checkbox" name="pl">
+            <label>Python</label><br>
+            <label>Password:</label>
+            <input type="password" maxlength="8" required>
+            <label>Confirm Password</label>
+            <input type="password" maxlength="8" required><br>
+            </div>
+
+            <div>
+            <label>Description:</label>
+            <textarea placeholder="Write Something....."></textarea>
+
+            <input type="file" name="file" accept="image/*">
+            <!-- <input type="tablet" name="tablet" accept="image/*"> -->
+            <input type="Submit">
+            <input type="Reset">
+            </div>
+        </form>
+    </body>
+</html>

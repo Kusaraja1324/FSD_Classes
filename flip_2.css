@@ -1,0 +1,49 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100svh;
+}
+.grand{
+    perspective: 250px;
+    width: 200px;
+    height: 150px;
+}
+.parent{
+    position: relative;
+    width: 200px;
+    height: 150px;
+    transform-style: preserve-3d;
+    transition: transform 1s linear;
+}
+.front{
+    position: absolute;
+    width: 200px;
+    height: 150px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: red;
+    color: white;
+    padding: 10px;
+    transition: transform 1s linear;
+    backface-visibility: hidden;
+    /* box-shadow: 0px 0px 10px rgb(234, 230, 1); */
+}
+.back{
+     position: absolute;
+    width: 200px;
+    height: 150px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: blue;
+    color: white;
+    padding: 10px;
+   transition: transform 1s linear;
+   transform: rotateY(180deg);
+   backface-visibility: hidden;
+    /* box-shadow: 0px 0px 10px rgb(234, 230, 1); */
+}
+.parent:hover{
+    transform:rotateY(180deg);
+    transition: transform 1s linear;
+}

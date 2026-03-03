@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="side_bar.css">
+</head>
+<body>
+    <div class="mobile_options">
+       
+        <div class="font" onclick="fun()">&times;</div>
+        <div class="hm">Home</div>
+        <div class="hm">Course</div>
+        <div class="hm">About</div>
+        <div class="hm">Contact</div>
+        <div class="hm">Service</div>
+    </div>
+    <script>
+        function fun(){
+            document.getElementsByClassName("mobile_options")[0].style.display = "none";
+        }
+        function click(){
+            document.getElementsByTagName("button")[0].style.display = "block";
+        }
+    </script>
+</body>
+</html>

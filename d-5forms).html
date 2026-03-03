@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <title>input types</title>
+    </head>
+    <body>
+        <h1>Form</h1>
+        <form>
+           <label for="Fname">First Name:</label>
+            <input type="text" name="Fname" required><br/><br>
+            <label for="Lname">Last Name:</label>
+            <input type="text" name="Lname" required><br><br>
+           <div> <label for="dob">Date Of Birth</label>
+            <input type="date" name="dob" required><br><br>
+            <label>Age</label>
+            <input type="number" max="100" required><br><br>
+        
+            <label>Gender:</label>
+            <select>
+                <option>Male</option>
+                <option>Female</option>
+                <option>other</option>
+            </select><br><br>
+            <label>Email Address:</label>
+            <input type="email" placeholder="Enter your email" required><br/><br>
+            
+            <label for="pa">Positions Available:</label>
+            <input type="radio" name="pa">
+            <label>Junior Developer</label>
+            <input type="radio" name="pa">
+            <label>Mid-level Developer</label>
+            <input type="radio" name="pa" >
+            <label>Senior Developer</label><br><br>
+            <div>
+            <label for="pl">Programming Languages:</label>
+            <input type="checkbox" name="pl">
+            <label>Java</label>
+            <input type="checkbox" name="pl">
+            <label>JavaScript</label>
+            <input type="checkbox" name="pl">
+            <label>Python</label><br><br>
+            <label>Password:</label>
+            <input type="password" maxlength="8" required>
+            <label>Confirm Password</label>
+            <input type="password" maxlength="8" required><br><br>
+
+            <div>
+            <label>Description:</label>
+            <textarea placeholder="Write Something....."></textarea>
+
+            <input type="file" name="file" accept="image/*"><br>
+            <!-- <input type="tablet" name="tablet" accept="image/*"> -->
+
+            <input type="Submit">
+            <input type="Reset"><br><br>
+
+             <table border="1px">
+               <thead>
+                <tr>
+                    <th>AOT</th>
+                    <th>Dragon Ball</th>
+                    <th>Solo Leveling</th>
+                </tr>
+               </thead>
+               <tbody>
+                <tr>
+                    <td><a href="https://en.wikipedia.org/wiki/Attack_on_Titan"></a><img src="./anime pics/aot_img.jpg" width="150" height="100"></td>
+                    <td><img src="./anime pics/db10.jpg" width="200"></td>
+                    <td><img src="./anime pics/solo_leveling.png" width="200"></td>
+
+                </tr>
+                <tr>
+                    <!-- <td><a href="https://en.wikipedia.org/wiki/Attack_on_Titan">aot_wiki</a></td> -->
+                    <td><a href="https://en.wikipedia.org/wiki/Dragon_Ball">Dragon_Ball_wiki</a></td>
+                    <td><a href="https://en.wikipedia.org/wiki/Solo_Leveling">solo_leveling_wiki</a></td>
+                </tr>
+               </tbody>
+             </table>
+        </form>
+    </body>
+</html>

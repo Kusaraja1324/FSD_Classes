@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Page with Dual Run</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #04153F;
+            color: white;
+        }
+
+        .container {
+            display: flex;
+            height: 100svh;
+            flex-direction: row;
+        }
+
+        .left,
+        .right {
+            width: 50%;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .left-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .left-tab-button {
+            color: white;
+            font-weight: bold;
+            padding: 8px 16px;
+            background-color: #1E006E;
+            border: 1px solid #00FFE1;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .left-tab-button.active {
+            background-image: linear-gradient(145deg, #00FFF7, #6E00FF);
+            color: #04153F;
+        }
+
+        .tab-content {
+            background: #121E3A;
+            padding: 15px;
+            border-radius: 10px;
+            display: none;
+            color: #D1D5DB;
+            line-height: 1.6;
+            height: calc(100svh - 110px);
+            overflow-y: auto;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .right h3 {
+            color: white;
+        }
+
+        .sec {
+            margin-bottom: 10px;
+            display: flex;
+            gap: 5px;
+            align-items: center;
+        }
+
+        .button {
+            color: white;
+            font-weight: bold;
+            width: 110px;
+            height: 31px;
+            border: 1px solid gray;
+            background: #1E006E;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .button img {
+            height: 18px;
+            width: 18px;
+        }
+
+        .button:hover {
+            background-image: linear-gradient(145deg, #00FFF7, #6E00FF);
+            border: 0;
+        }
+
+        .curr {
+            border: 2px solid #00FFE1;
+            background: #1E006E;
+            color: #00FFE1;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .cp {
+            width: 100%;
+            display: flex;
+            flex-direction: row-reverse;
+        }
+
+        .copy {
+            border: 1px solid gray;
+            width: 80px;
+            background-color: #1E006E;
+            color: white;
+            font-size: 16px;
+            padding: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .copy:hover {
+            background: linear-gradient(145deg, #00FFF7, #6E00FF);
+            color: white;
+            border: none;
+        }
+
+        textarea {
+            width: 95%;
+            height: 65vh;
+            padding: 10px;
+            resize: none;
+            border: 1px solid rgb(192, 188, 188);
+            background-color: hsl(224, 82%, 12%);
+            color: white;
+            font-size: 1rem;
+            font-family: monospace;
+            border-radius: 6px;
+            margin-bottom: 10px;
+        }
+
+        .rp {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .run {
+            color: white;
+            font-weight: bold;
+            width: 140px;
+            height: 35px;
+            background: #1E006E;
+            border-radius: 8px;
+            border: 1px solid #00FFE1;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .run:hover {
+            background: linear-gradient(145deg, #00FFF7, #6E00FF);
+            color: #04153F;
+        }
+
+        .mark {
+            width: 100%;
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .mark label {
+            color: rgb(4, 255, 4);
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .mark input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: #00e791;
+        }
+        
+        .fav{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        .favorite{
+            width: fit-content;
+            height: 30px;
+            background-color: #121E3A;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            padding: 5px 10px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+            font-size: 20px;
+        }
+        .favorite:hover {
+            color: red;
+        }
+
+        @media(max-width:768px) {
+            .container {
+                flex-direction: column;
+                height: auto;
+            }
+
+            .left,
+            .right {
+                width: 100%;
+                height: auto;
+            }
+
+            .tab-content {
+                height: fit-content;
+            }
+
+            textarea {
+                height: 50vh;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left">
+            <div class="left-tabs">
+                <button class="left-tab-button active" onclick="showTab('description', this)">Description</button>
+                <button class="left-tab-button" onclick="showTab('editorial', this)">Editorial</button>
+            </div>
+            <div id="description" class="tab-content active">
+                <div class="fav"><h2>Problem Statement</h2><button class="favorite"><i class="fas fa-heart white-heart"></i>
+</button></div>
+                
+                <p><strong>Title:</strong> Tic Tac Toe Game</p>
+                <p><strong>Description:</strong><br />You are required to build a functional Tic Tac Toe game using HTML, CSS, and JavaScript where two players can alternately take turns to mark "X" and "O" on a 3x3 grid. The game should detect a win, draw,
+                    or ongoing play in real-time, highlighting the winning combination when a player wins and preventing further moves after the game ends. An optional "Player vs Computer" mode can be included.</p>
+                <center>
+                    <video autoplay loop muted playsinline width="80%" style="border-radius: 10px; max-width: 400px;">
+                        <source src="./media/Tic Tac Toe.mp4" type="video/mp4"> Your browser does not support the video tag.
+                    </video>
+                </center>
+                <p><strong>Functional Requirements:</strong></p>
+                <ul>
+                    <li>The grid must be 3x3 with 9 clickable cells.</li>
+                    <li>Players should alternate turns, starting with "X".</li>
+                    <li>The game must immediately detect and declare a winner or a draw.</li>
+                    <li>Once the game is over (win or draw), no more moves should be allowed until the game is reset.</li>
+                    <li>A "Reset" or "New Game" button must be provided to start a new game.</li>
+                </ul>
+            </div>
+
+            <div id="editorial" class="tab-content">
+                <div class="sec">
+                    <button class="html button curr" onclick="showEditorialCode('html-code-1', this)">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML Logo">HTML
+                    </button>
+                    <button class="css button" onclick="showEditorialCode('css-code-1', this)">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS Logo">CSS
+                    </button>
+                    <button class="js button" onclick="showEditorialCode('js-code-1', this)">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JS Logo">JS
+                    </button>
+                    <div class="cp">
+                        <button class="copy" onclick="copyCode(this)"><i class="fa-solid fa-copy"></i> Copy</button>
+                    </div>
+                </div>
+                <textarea id="html-code-1" disabled>
+<main>
+    <div class="MessageBox">
+        <div class="FirstPage">
+            <div class="header"><h1>TIC TAC TOE</h1></div>
+            <div class="IntroSection">
+                <button class="btn">Player vs Player</button>
+                <button class="btn">Player vs Computer</button>
+            </div>
+        </div>
+        <div class="SecondPage hide">
+            <div class="ResultSection">
+                <div class="message"><h1>Winner</h1></div>
+                <div class="Result">
+                    <div class="home">
+                        <button class="newbtn">Home</button>
+                        <button class="newbtn">New Game</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="Game hide">
+        <h1><b>Tic Tac Toe</b></h1>
+        <div class="GameBox">
+            <div class="Board">
+                <button class="Box"></button>
+                <button class="Box"></button>
+                <button class="Box"></button>
+                <button class="Box"></button>
+                <button class="Box"></button>
+                <button class="Box"></button>
+                <button class="Box"></button>
+                <button class="Box"></button>
+                <button class="Box"></button>
+            </div>
+        </div>
+        <button id="ResetButton">Reset</button>
+    </div>
+</main>
+                </textarea>
+                <textarea id="css-code-1" class="hide" disabled>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #112D4E;
+    text-align: center;
+    color: #F9F7F7;
+    font-family: Arial, sans-serif;
+}
+.MessageBox {
+    height: 100vh;
+    width: 100%;
+    background-color: #ECEFCA;
+    color: #112D4E;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.FirstPage, .SecondPage {
+    width: 100%;
+}
+h1 {
+    font-size: 10vmin;
+}
+.GameBox {
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Board {
+    height: 60vmin;
+    width: 60vmin;
+    background-color: #112D4E;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 1.5vmin;
+}
+#ResetButton {
+    padding: 1rem 2rem;
+    font-size: 1.25rem;
+    border-radius: 10px;
+    color: #DBE2EF;
+    background-color: #3F72AF;
+    font-weight: bolder;
+    border: none;
+    cursor: pointer;
+}
+.Box {
+    font-size: 12vmin;
+    background-color: #424242;
+    border-radius: 1rem;
+    border: none;
+    color: #0ABAB5;
+    font-weight: 1000;
+    box-shadow: 0 0 10px black;
+    cursor: pointer;
+}
+.Box:hover, #ResetButton:hover {
+    opacity: 0.8;
+}
+.hide {
+    display: none;
+}
+.btn, .newbtn {
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    color: #ffffff;
+    background-color: black;
+    font-weight: bolder;
+    border: none;
+    cursor: pointer;
+    margin: 1rem;
+}
+.IntroSection, .home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+.message {
+    margin-bottom: 2rem;
+}
+.ResultSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+@media (max-width: 600px) {
+    .Board {
+        height: 80vw;
+        width: 80vw;
+    }
+    h1 {
+        font-size: 12vw;
+    }
+    .IntroSection, .home {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+                </textarea>
+                <textarea id="js-code-1" class="hide" disabled>
+// --- DOM Element Selection ---
+const boxes = document.querySelectorAll(".Box");
+const ResetBtn = document.querySelector("#ResetButton");
+const messagebox = document.querySelector(".MessageBox");
+const menuButtons = document.querySelectorAll(".btn");
+const firstPage = document.querySelector(".FirstPage");
+const secondPage = document.querySelector(".SecondPage");
+const gameContainer = document.querySelector(".Game");
+const message = document.querySelector(".message h1");
+const newGameButtons = document.querySelectorAll(".newbtn");
+
+// --- Game State Variables ---
+let playerTurnX = true; // True if it's Player X's turn, false for Player O
+let gameMode = 0; // 0 for PvP, 1 for PvC
+let gameActive = true;
+let moveCount = 0;
+
+const winPatterns = [
+    [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
+    [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
+    [0, 4, 8], [2, 4, 6]  // Diagonals
+];
+
+// --- Core Functions ---
+
+const resetGame = () => {
+    playerTurnX = true;
+    gameActive = true;
+    moveCount = 0;
+    boxes.forEach(box => {
+        box.innerText = "";
+        box.disabled = false;
+    });
+};
+
+const disableAllBoxes = () => {
+    boxes.forEach(box => box.disabled = true);
+};
+
+const showResult = (winnerText) => {
+    message.innerText = winnerText;
+    gameContainer.classList.add("hide");
+    messagebox.classList.remove("hide");
+    secondPage.classList.remove("hide");
+    firstPage.classList.add("hide");
+    gameActive = false;
+};
+
+const checkWinner = () => {
+    let winnerFound = false;
+    for (let pattern of winPatterns) {
+        const [a, b, c] = pattern;
+        const pos1Val = boxes[a].innerText;
+        const pos2Val = boxes[b].innerText;
+        const pos3Val = boxes[c].innerText;
+
+        if (pos1Val && pos1Val === pos2Val && pos1Val === pos3Val) {
+            let winner = pos1Val;
+            if (gameMode === 0) { // PvP
+                showResult(Player ${winner} Wins!);
+            } else { // PvC
+                showResult(winner === 'X' ? 'You Win!' : 'Computer Wins!');
+            }
+            winnerFound = true;
+            disableAllBoxes();
+            return;
+        }
+    }
+
+    if (moveCount === 9 && !winnerFound) {
+        showResult("It's a Draw!");
+        disableAllBoxes();
+    }
+};
+
+const computerMove = () => {
+    if (!gameActive) return;
+
+    let availableBoxes = [];
+    boxes.forEach((box, index) => {
+        if (box.innerText === "") {
+            availableBoxes.push(index);
+        }
+    });
+    
+    if (availableBoxes.length > 0) {
+        const randomIndex = Math.floor(Math.random() * availableBoxes.length);
+        const moveIndex = availableBoxes[randomIndex];
+        boxes[moveIndex].innerText = "O";
+        boxes[moveIndex].disabled = true;
+        playerTurnX = true; // Set turn back to player
+        moveCount++;
+        checkWinner();
+    }
+};
+
+
+// --- Event Listeners ---
+boxes.forEach((box) => {
+    box.addEventListener("click", () => {
+        if (gameActive && box.innerText === "") {
+            const currentSymbol = playerTurnX ? "X" : "O";
+            box.innerText = currentSymbol;
+            box.disabled = true;
+            playerTurnX = !playerTurnX;
+            moveCount++;
+            checkWinner();
+            
+            if (gameMode === 1 && !playerTurnX && gameActive) {
+                setTimeout(computerMove, 500);
+            }
+        }
+    });
+});
+
+menuButtons.forEach((btn, index) => {
+    btn.addEventListener("click", () => {
+        gameMode = index;
+        messagebox.classList.add("hide");
+        gameContainer.classList.remove("hide");
+        resetGame();
+    });
+});
+
+newGameButtons[1].addEventListener("click", () => {
+    messagebox.classList.add("hide");
+    gameContainer.classList.remove("hide");
+    resetGame();
+});
+
+newGameButtons[0].addEventListener("click", () => {
+    secondPage.classList.add("hide");
+    firstPage.classList.remove("hide");
+});
+
+ResetBtn.addEventListener("click", resetGame);
+                </textarea>
+            </div>
+        </div>
+        <div class="right">
+            <h3>🛠 Code Editor</h3>
+            <div class="sec">
+                <button class="html button curr" onclick="showEditorCode('html-code', this)">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML Logo">HTML
+                </button>
+                <button class="css button" onclick="showEditorCode('css-code', this)">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS Logo">CSS
+                </button>
+                <button class="js button" onclick="showEditorCode('js-code', this)">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JS Logo">JS
+                </button>
+            </div>
+            <textarea id="html-code" placeholder="Write HTML here..."></textarea>
+            <textarea id="css-code" class="hide" placeholder="Write CSS here..."></textarea>
+            <textarea id="js-code" class="hide" placeholder="Write JS here..."></textarea>
+            <div class="rp">
+                <button onclick="runInNewPage()" class="run">Run</button>
+                <div class="mark">
+                    <label for="mark-as-completed-checkbox">Mark as Completed</label>
+                    <input type="checkbox" id="mark-as-completed-checkbox">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let classes = new Array(9);
+        let fav_btn = document.querySelector(".fav-btn"), page = -1;
+        classes[0] = "fav-task1";
+        classes[1] = "fav-task2";
+        classes[2] = "fav-task3";
+        classes[3] = "fav-task4";
+        classes[4] = "fav-task5";
+        classes[5] = "fav-task6";
+        classes[6] = "fav-task7";
+        classes[7] = "fav-task8";
+        classes[8] = "fav-task9";
+        let task_page = new Array(9);
+        task_page[0] = "task-page1";
+        task_page[1] = "task-page2";
+        task_page[2] = "task-page3";
+        task_page[3] = "task-page4";
+        task_page[4] = "task-page5";
+        task_page[5] = "task-page6";
+        task_page[6] = "task-page7";
+        task_page[7] = "task-page8";
+        task_page[8] = "task-page9";
+        let is_fav = new Array(9);
+        for(let i = 0; i < 9; i++) {
+            if(localStorage.getItem(task_page[i])) {
+                page = i;
+                localStorage.setItem(task_page[i], false);
+            }
+        }
+        fav_btn.addEventListener('click', () => {
+            classes.forEach((element, i) => {
+                if(is_fav[i]) {
+                    localStorage.setItem(element, -1);
+                    is_fav[i] = false;
+                }
+                else {
+                    localStorage.setItem(element, i + 1);
+                    is_fav[i] = true;
+                }
+            });
+        });
+        
+        // --- Tab Switching ---
+        function showTab(tabId, buttonElement) {
+            const contents = document.querySelectorAll('.left .tab-content');
+            const buttons = document.querySelectorAll('.left .left-tab-button');
+            contents.forEach(c => c.classList.remove('active'));
+            buttons.forEach(b => b.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            buttonElement.classList.add('active');
+        }
+
+        // --- Code Toggling in Editor (Right Panel) ---
+        function showEditorCode(codeId, buttonElement) {
+            const textareas = document.querySelectorAll('.right textarea');
+            textareas.forEach(t => t.classList.add('hide'));
+            document.getElementById(codeId).classList.remove('hide');
+
+            const buttons = buttonElement.parentElement.querySelectorAll('.button');
+            buttons.forEach(btn => btn.classList.remove('curr'));
+            buttonElement.classList.add('curr');
+        }
+
+        // --- Code Toggling in Editorial (Left Panel) ---
+        function showEditorialCode(codeId, buttonElement) {
+            const textareas = document.querySelectorAll('#editorial textarea');
+            textareas.forEach(t => t.classList.add('hide'));
+            document.getElementById(codeId).classList.remove('hide');
+
+            const buttons = buttonElement.parentElement.querySelectorAll('.button');
+            buttons.forEach(btn => btn.classList.remove('curr'));
+            buttonElement.classList.add('curr');
+        }
+        
+        function copyCode(buttonElement) {
+            const activeCodeButton = document.querySelector("#editorial .button.curr");
+            const codeType = activeCodeButton.classList[0]; 
+            const textAreaId = `${codeType}`-code-1;
+            const textArea = document.getElementById(textAreaId);
+
+            navigator.clipboard.writeText(textArea.value).then(() => {
+                buttonElement.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
+                setTimeout(() => {
+                    buttonElement.innerHTML = '<i class="fa-solid fa-copy"></i> Copy';
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+            });
+        }
+
+        function runInNewPage() {
+            const html = document.getElementById("html-code").value;
+            const css = document.getElementById("css-code").value;
+            const js = document.getElementById("js-code").value;
+
+            const userCode = `
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <style>${css}</style>
+                </head>
+                <body>
+                    ${html}
+                    <script>${js.replace(/<\/script>/g, "<\\/script>")}
+                    <\/script>
+                </body>
+                </html>
+            `;
+
+            const externalWindow = window.open();
+            if (externalWindow) {
+                externalWindow.document.open();
+                externalWindow.document.write(userCode);
+                externalWindow.document.close();
+            } else {
+                alert("Popup blocked! Please allow popups for this site.");
+            }
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            const markAsCompletedCheckbox = document.getElementById('mark-as-completed-checkbox');
+
+            if (markAsCompletedCheckbox) {
+                markAsCompletedCheckbox.addEventListener('change', (event) => {
+                    if (event.target.checked) {
+                        console.log('Checkbox is checked.');
+                    } else {
+                        console.log('Checkbox is unchecked.');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

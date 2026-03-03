@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Output Preview</title>
+  <style>
+    html, body {
+      margin: 0;
+      height: 100%;
+      overflow: hidden;
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <iframe id="result"></iframe>
+  <script>
+    window.addEventListener("message", (event) => {
+      const iframe = document.getElementById("result");
+      if (iframe) {
+        iframe.srcdoc = event.data;
+      }
+    });
+  </script>
+</body>
+</html>

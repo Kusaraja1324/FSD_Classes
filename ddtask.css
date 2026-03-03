@@ -1,0 +1,105 @@
+.parent{
+    height: 100px;
+    border: 2px solid black;
+    /* background-image: linear-gradient(black,blue); */
+}
+.head{
+    position: absolute;
+    left: 600px;
+    top: 80px;
+}
+.home{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid red;
+    background-color: aqua;
+    cursor: pointer;
+    border-radius: 8px;
+    padding: 4px;
+}
+.opt{
+    display: none;
+}
+.home:hover .opt{
+    display: block;
+    
+}
+.opt:hover{
+    background-color: rgb(255, 1, 1);
+    color: white;
+}
+
+.about{
+    position: absolute;
+    left: 90px;
+    top: 0px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid red;
+    border-radius: 8px;
+    padding: 4px;
+    background-color: aqua;
+    cursor: pointer;
+}
+.ab{
+    display: none;
+    
+}
+.about:hover .ab{
+    display: block;
+}
+.ab:hover{
+    background-color: red;
+    color: white;
+}
+
+.prod{
+    position: absolute;
+    left: 180px;
+    top: 0px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid red;
+    border-radius: 8px;
+    padding: 4px;
+    background-color: aqua;
+    cursor: pointer;
+}
+.pro{
+    display: none;
+}
+.pro:hover{
+    background-color: red;
+    color: white;
+}
+.prod:hover .pro{
+    display: block;
+}
+
+.retail{
+    border: 1px solid red;
+    border-radius: 8px;
+    position: absolute;
+    left: 270px;
+    top: 0px;
+    display: flex;
+    flex-direction: column;
+    padding: 4px;
+    background-color: aqua;
+    cursor: pointer;
+}
+.ret{
+    display: none;
+}
+.retail:hover .ret{
+    display: block;
+}
+.ret:hover{
+    background-color: red;
+    color: white;
+}
+
+.font{
+    height: 100px;
+    border: 1px solid red;
+}

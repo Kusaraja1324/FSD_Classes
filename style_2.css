@@ -1,0 +1,24 @@
+header{
+    text-shadow: 2px 2px ;
+}
+h3{
+    color: rebeccapurple;
+    text-shadow: 2px,2px;
+}
+.p1{
+    margin: 0;
+    padding: 0;
+    color: red;
+}
+.p2{
+    text-align-last: justify;
+    color: blue;
+}
+.p3{
+    
+    text-decoration: dotted red;
+    text-decoration-line: underline;
+}
+.p4{
+    text-align: right;
+}

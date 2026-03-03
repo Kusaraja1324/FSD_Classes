@@ -1,0 +1,130 @@
+body{
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sun{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: yellow;
+    box-shadow: 0px 0px 100px yellow;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    /* animation-name: myanime; */
+    animation-iteration-count: infinite;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    position: absolute;
+    top: 130px;
+}
+
+.jup{
+    width: 800px;
+    height: 800px;
+    border: 1px dotted white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    overflow: visible;
+    position: absolute;
+    top: 100px;
+    left: 300px;
+}
+.j_i{
+    width: 90px;
+    height:80px;
+    border: 1px solid black;
+    border-radius: 50%;
+    object-fit: contain;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 360px;
+    left: 0px;
+    animation-name: myanime;
+    animation-iteration-count: infinite;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+}
+
+@keyframes myanime{
+    0%{
+        transform: rotateZ(0deg) translateX(400px);
+    }
+    100%{
+        transform: rotateZ(360deg) translateX(400px);
+    }
+}
+.mars{
+    width: 550px;
+    height: 550px;
+    border: 1px dotted white;
+    border-radius: 50%;
+    position: absolute;
+    top: 130px;
+    left: 130px;
+    display: flex;
+    justify-content: center;
+
+}
+.m_i{
+    width:80px;
+    height: 80px;
+    border: 1px solid black;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    object-fit: contain;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    top: 240px;
+    animation-name: myanime2;
+    animation-iteration-count: infinite;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+}
+
+@keyframes myanime2{
+    0%{
+        transform: rotateZ(0deg) translateX(270px);
+    }
+    100%{
+        transform:rotateZ(360deg) translateX(270px);
+    }
+}
+
+.earth{
+    width: 350px;
+    height: 350px;
+    border: 1px dotted white;
+    border-radius: 50%;
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+.e_i{
+    position: relative;
+    top: 1%;
+   animation-name: myanime3;
+   animation-duration: 4s;
+   animation-iteration-count: infinite;
+   animation-timing-function: linear;
+}
+
+@keyframes myanime3{
+    0%{
+        transform: rotateZ(0deg) translateX(100px);
+    }
+    100%{
+        transform: rotateZ(360deg) translateX(100px);
+    }
+}

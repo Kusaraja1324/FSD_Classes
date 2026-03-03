@@ -1,0 +1,45 @@
+/* .child{
+    width: 350px;
+    height: 350px;
+    background-image: conic-gradient(at 50% 50%,red, green,black,yellow);
+    border-radius: 50%;
+}
+.child2{
+    width: 350px;
+    height: 350px;
+    background-image: repeating-radial-gradient(red 10%, blue 20%);
+    border-radius: 50%;
+}
+.child3{
+    width: 350px;
+    height: 350px;
+    background-image: linear-gradient(to top ,red, green,black,yellow);
+    border-radius: 50%;
+} */
+/* .child4{
+    position: absolute;
+    left: 100px;
+    top: 100px;
+    width: 350px;
+    height: 350px;
+    border: 3px solid yellow;
+    background-color: yellow;
+    box-shadow: 1px 2px 100px 5px orange;
+    border-radius: 50%;
+} */
+.child5{
+position: absolute;
+    left: 100px;
+    top: 100px;
+    width: 350px;
+    height: 350px;
+    font-size: 50px;
+    color: red;
+    font-style: italic;
+    text-shadow: 10px 10px 30px black;
+    border: 10px solid green;
+    position: absolute;
+    top: 200px;
+    box-shadow: -10px 10px 10px 5px red;
+   
+}
